@@ -73,17 +73,18 @@ const app = createApp({
 });
 
 app.component('productModal', {
-    props: ['tempProduct'],
+    props: ['tempProduct','isNew'],
     template: '#templateForProductModal',
     methods: {
         updateProduct() {
             let url = `${site}/api/${api_path}/admin/product`;
             let method = 'post';
-            console.log(url,method);
+
             if (!this.isNew) {
                 url = `${site}/api/${api_path}/admin/product/${this.tempProduct.id}`;
                 method = 'put';
             }  //如果是編輯的話 就代id並改成put
+            
 
             axios[method](url, { data: this.tempProduct })  //資料的格式要參照api的格式 
                 .then((res) => {

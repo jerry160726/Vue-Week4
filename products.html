@@ -68,7 +68,9 @@
     <!-- Modal -->
     <div id="productModal" ref="productModal" class="modal fade" tabindex="-1" aria-labelledby="productModalLabel"
       aria-hidden="true">
-      <product-modal :temp-product="tempProduct" v-on:get-products="getProducts"></product-modal>
+      <product-modal :temp-product="tempProduct" 
+      :is-new="isNew"
+      v-on:get-products="getProducts"></product-modal>
     </div>
 
     <div id="delProductModal" ref="delProductModal" class="modal fade" tabindex="-1"
